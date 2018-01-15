@@ -25,7 +25,7 @@ The data is provided in three files:
 The client is looking for a way to predict failures to minimize possible damages and thus costs. Assuming that they can monitor these sensors in real time they could roll the engine into maintenance early enough to avoid catastrophic failure.
 It is up to you to devise a way to predict the number of cycles an engine has left in it.
 
-## Solution Readnme
+## Solution Readme
 Mathematical Essence of the problem is vector autoregression:
 https://en.wikipedia.org/wiki/Vector_autoregression and its usage in prediction (regression).
 
