@@ -25,14 +25,14 @@ The data is provided in three files:
 The client is looking for a way to predict failures to minimize possible damages and thus costs. Assuming that they can monitor these sensors in real time they could roll the engine into maintenance early enough to avoid catastrophic failure.
 It is up to you to devise a way to predict the number of cycles an engine has left in it.
 
+## Solution Readnme
+Mathematical Essence of the problem is vector autoregression:
+https://en.wikipedia.org/wiki/Vector_autoregression and its usage in prediction (regression).
 
-Mathematical Essence of the problem:
-https://en.wikipedia.org/wiki/Vector_autoregression usage in prediction.
-
-Problem Description
+### Interpretation Note
 The problem provided is a regression problem since the the final output: the remaining useful life of an aircraft engine is on a continuous scale (considering the problem on a discrete scale would be a very high-dimensional classification problem which would be unfeasible).
 
-Working Pipeline:
+### Working Pipeline:
 ![alt text](https://lh3.googleusercontent.com/PA34O6XX1nkQHbXMABVaFB44VYnuVZunZvBh6K71DfVrocsCw5nxUOqJBw3SD5ofVV5iug90oEjyGQ=s599)
 
 
@@ -52,10 +52,18 @@ Since a neural network is a generic graphical model, it can have either high or 
 * Next the time series features in the training and testing data were normalized, and then for training data, the unnormalized features were joined with the normalized time series features. There is a small information leak, since later test/cross-validation split is performed on the normalized test data, where some information leaked into the cross-validation data as well (it would be better to split the data before normalizing, but in this case, the cross-validation and test set errors were almost identical, so it didn't play a role).
 
 ## Correlation Analysis
-Correlation Matrix visualization on the test set was performed.
+Correlation Matrix visualization on the `rawtest` was performed.
 ![alt text](http://i64.tinypic.com/2jbtrgn.png)
 
-##
+## Time Series Feature Generation
+Time Series features were generated using the function `prepare_features` both for the `train`,`test` and `cv-data` without using Keras internal padding mechanisms, but just by subsetting out only data relevant to the time (cycle) window.
+
+## Modelling: Deep Learning on Sequential LSTM Deep Network
+Hyperparameters optimized were the dropout probability and layer one units. Layer 2 unit count was set to 20 for computational limitations. Out of other parameters, the results were tested out both with window size 5 and 18. The best model was chosen according to the best cross-validation error.
+
+## Bayesian Optimization
+
+Bayesian Optimization was experimented with Hyperas and Hyperopt, but the routine experiments ran a little bit too slowly on the current system. Indicated for further use for optimization in parallel mode.
 
 
 
