@@ -65,6 +65,7 @@ Hyperparameters optimized were the dropout probability and layer one units. Laye
 ## Bayesian Optimization
 
 Bayesian Optimization was experimented with Hyperas and Hyperopt, but the routine experiments ran a little bit too slowly on the current system. Indicated for further use for optimization in parallel mode.
+![Additional Information on Bayesian Optimization](https://github.com/fmfn/BayesianOptimization)
 
 
 
