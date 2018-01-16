@@ -54,6 +54,7 @@ Since a neural network is a generic graphical model, it can have either high or 
 ## Correlation Analysis
 Correlation Matrix visualization on the `rawtest` was performed.
 ![alt text](http://i64.tinypic.com/2jbtrgn.png)
+Color legend: maximally dark blue --> correlation = -1. Maximally dark red --> correlation = 1 (this is also clear from the main diagonal of the matrix since everything correlates to itself maximally (variance 1)).
 
 ## Time Series Feature Generation
 Time Series features were generated using the function `prepare_features` both for the `train`,`test` and `cv-data` without using Keras internal padding mechanisms, but just by subsetting out only data relevant to the time (cycle) window.
