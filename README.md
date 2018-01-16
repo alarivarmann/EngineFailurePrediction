@@ -1,4 +1,4 @@
-# EngineFailurePrediction
+# EngineRemainingLifetimePrediction
 Prediction of Running Useful Life Left in Engine
 
 Data
