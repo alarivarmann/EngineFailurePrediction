@@ -52,7 +52,7 @@ Since a neural network is a generic graphical model, it can have either high or 
 * Next the time series features in the training and testing data were normalized, and then for training data, the unnormalized features were joined with the normalized time series features. There is a small information leak, since later test/cross-validation split is performed on the normalized test data, where some information leaked into the cross-validation data as well (it would be better to split the data before normalizing, but in this case, the cross-validation and test set errors were almost identical, so it didn't play a role).
 
 ## Correlation Analysis
-Correlation Matrix visualization on the `rawtest` was performed.
+Correlation Matrix visualization on the `rawtest` was performed. In the next iterations, sensors with high correlation to other sensors will be removed from the training set.
 ![alt text](http://i64.tinypic.com/2jbtrgn.png)
 Color legend: maximally dark blue --> correlation = -1. Maximally dark red --> correlation = 1 (this is also clear from the main diagonal of the matrix since everything correlates to itself maximally (variance 1)).
 
